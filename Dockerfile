@@ -1,8 +1,12 @@
 FROM node:7.2
+EXPOSE 8080
 
-COPY src/ /opt/imgmonic
+COPY config.yml /opt/imgmonic/
+COPY package.json /opt/imgmonic/
+COPY src/ /opt/imgmonic/src
+
 WORKDIR /opt/imgmonic
 RUN npm install
 
-EXPOSE 8080
-CMD [ "npm", "start" ]
+CMD [ "node", "src/index.js" ]
+
