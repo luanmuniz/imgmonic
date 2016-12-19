@@ -1,0 +1,16 @@
+development:
+  placeholder: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150'
+  secret: 'aVerySecretSecret'
+  app:
+    port: 8523
+
+production:
+  placeHolder: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150'
+  auth:
+    type: token
+    token: 'aVerySecretSecret'
+  redis:
+    host: localhost
+    port: 6379
+  app:
+    port: 8523

@@ -1,0 +1,32 @@
+{
+  "name": "imgmonic",
+  "version": "1.0.0",
+  "description": "A HotLink private CDN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZimpFidelidade/imgmonic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZimpFidelidade/imgmonic/issues"
+  },
+  "homepage": "https://github.com/ZimpFidelidade/imgmonic#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "got": "^6.6.3",
+    "hapi": "^16.0.1",
+    "hapi-auth-bearer-token": "^4.3.1",
+    "helmet": "^3.1.0",
+    "method-override": "^2.3.7",
+    "node-yaml": "^3.0.3",
+    "redis": "^2.6.3"
+  }
+}
