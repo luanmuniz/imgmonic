@@ -19,6 +19,8 @@ var routeObj = {
 			path: '/i/{hash}',
 			handler: routeObj.getImagesHandler
 		});
+
+		return routeObj;
 	},
 
 	healthHandler(req, reply) {
@@ -26,20 +28,26 @@ var routeObj = {
 	},
 
 	getImagesHandler(req, reply) {
-		const base64Hash = encodeURIComponent(req.params.hash);
-		let url = encodeURIComponent(req.query.url || '');
+		const base64Hash = req.params.hash;
+		let url = req.query.url || '';
 
 		if(!routeObj.isHashValid(base64Hash, url)) {
 			url = routeObj.config.placeholder;
 		}
 
 		return got(url)
+			.catch((err) => got(routeObj.config.placeholder))
 			.then((response) => routeObj.replyImage(response, reply));
 	},
 
 	replyImage(res, reply) {
 		if(res.headers['content-length'] && parseInt(res.headers['content-length'], 10) !== res.body.length) {
 			return got(res.requestUrl, { encoding: 'buffer' })
+				.then((gotRes) => routeObj.replyImage(gotRes, reply));
+		}
+
+		if(!res.headers['content-type'].match(/image/)) {
+			return got(routeObj.config.placeholder)
 				.then((gotRes) => routeObj.replyImage(gotRes, reply));
 		}
 
@@ -61,4 +69,5 @@ var routeObj = {
 
 };
 
+module.exports.route = routeObj;
 module.exports = routeObj.init;

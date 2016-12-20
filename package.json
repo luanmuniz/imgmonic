@@ -2,10 +2,22 @@
   "name": "imgmonic",
   "version": "1.0.0",
   "description": "A HotLink private CDN",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "test": "npm run eslint && npm run david && npm run lab",
+    "test-cov": "npm run eslint && david && npm run lab -- -r console -o stdout -r html -o coverage/coverage.html -r lcov -o coverage/lcov.info",
+    "eslint": "eslint --ignore-path .npmignore **/**/*.js --quiet",
+    "david": "david",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+    "preversion": "git pull && rm -rf ./node_modules/ && npm install && npm test",
+    "postversion": "git push && npm publish --access=public && git push --tags",
+    "lab": "lab --verbose --colors --assert code -e development"
   },
+  "pre-commit": [
+    "precommit-msg",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZimpFidelidade/imgmonic.git"
@@ -17,16 +29,17 @@
   },
   "homepage": "https://github.com/ZimpFidelidade/imgmonic#readme",
   "dependencies": {
-    "bluebird": "^3.4.6",
-    "body-parser": "^1.15.2",
-    "compression": "^1.6.2",
-    "express": "^4.14.0",
     "got": "^6.6.3",
     "hapi": "^16.0.1",
-    "hapi-auth-bearer-token": "^4.3.1",
-    "helmet": "^3.1.0",
-    "method-override": "^2.3.7",
-    "node-yaml": "^3.0.3",
-    "redis": "^2.6.3"
+    "hapi-test": "^5.0.0",
+    "node-yaml": "^3.0.3"
+  },
+  "devDependencies": {
+    "code": "^4.0.0",
+    "david": "^9.0.0",
+    "eslint": "^3.12.2",
+    "lab": "^11.2.1",
+    "pre-commit": "^1.2.2",
+    "rewire": "^2.5.2"
   }
 }

@@ -8,5 +8,5 @@ COPY src/ /opt/imgmonic/src
 WORKDIR /opt/imgmonic
 RUN npm install
 
-CMD [ "node", "src/index.js" ]
+CMD [ "npm", "start" ]
 
