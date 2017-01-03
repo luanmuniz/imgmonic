@@ -10,7 +10,7 @@ install:
   - npm install
 
 script:
-  - npm test
+  - npm test-cov
 
 notifications:
   email: false
