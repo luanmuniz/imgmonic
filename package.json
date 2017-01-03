@@ -1,8 +1,11 @@
 {
-  "name": "imgmonic",
+  "name": "shorio",
   "version": "1.0.0",
   "description": "A HotLink private CDN",
   "main": "src/index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "npm run eslint && npm run david && npm run lab",
@@ -22,12 +25,11 @@
     "type": "git",
     "url": "git+https://github.com/ZimpFidelidade/imgmonic.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Luan Muniz <luan@luanmuniz.com.br> (http://github.com/luanmuniz)",
+  "homepage": "https://github.com/ZimpFidelidade/node-centauro",
   "bugs": {
     "url": "https://github.com/ZimpFidelidade/imgmonic/issues"
   },
-  "homepage": "https://github.com/ZimpFidelidade/imgmonic#readme",
   "dependencies": {
     "got": "^6.6.3",
     "hapi": "^16.0.1",
