@@ -1,5 +1,5 @@
 {
-  "name": "shorio",
+  "name": "imgmonic",
   "version": "1.0.0",
   "description": "A HotLink private CDN",
   "main": "src/index.js",
