@@ -33,15 +33,15 @@
   "dependencies": {
     "got": "^6.6.3",
     "hapi": "^16.0.1",
-    "hapi-test": "^5.0.0",
     "node-yaml": "^3.0.3"
   },
   "devDependencies": {
     "code": "^4.0.0",
+    "coveralls": "^2.11.15",
+    "hapi-test": "^5.0.0",
     "david": "^9.0.0",
     "eslint": "^3.12.2",
     "lab": "^11.2.1",
-    "pre-commit": "^1.2.2",
-    "rewire": "^2.5.2"
+    "pre-commit": "^1.2.2"
   }
 }
